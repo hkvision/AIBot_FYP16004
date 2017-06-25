@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CustomerBotDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Channel" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="PriceBand" Type="nvarchar" MaxLength="255" />
+          <Property Name="PriceUSD" Type="float" />
+          <Property Name="DeviceCollection" Type="nvarchar" MaxLength="255" />
+          <Property Name="FormFactor" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeviceCategory" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeviceHeadlineShort" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeviceHeadlineLong" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeviceDescription" Type="nvarchar(max)" />
+          <Property Name="GenericDescriptor" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeviceNarrative" Type="nvarchar(max)" />
+          <Property Name="Feature1Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Feature1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Feature2Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Feature2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Feature3Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Feature3" Type="nvarchar" MaxLength="255" />
+          <Property Name="Feature4Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Feature4" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImageURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CustomerBotDBModelStoreContainer">
+          <EntitySet Name="Complaint" EntityType="Self.Complaint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeviceCatalog" EntityType="Self.DeviceCatalog" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CustomerBotDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Channel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Manufacturer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PriceBand" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PriceUSD" Type="Double" />
+          <Property Name="DeviceCollection" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FormFactor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceCategory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceHeadlineShort" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceHeadlineLong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GenericDescriptor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceNarrative" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Feature1Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Feature1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Feature2Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Feature2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Feature3Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Feature3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Feature4Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Feature4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="CustomerBotDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Complaints" EntityType="Self.Complaint" />
+          <EntitySet Name="DeviceCatalogs" EntityType="Self.DeviceCatalog" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CustomerBotDBModelStoreContainer" CdmEntityContainer="CustomerBotDBEntities1">
+          <EntitySetMapping Name="Complaints">
+            <EntityTypeMapping TypeName="CustomerBotDBModel.Complaint">
+              <MappingFragment StoreEntitySet="Complaint">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceCatalogs">
+            <EntityTypeMapping TypeName="CustomerBotDBModel.DeviceCatalog">
+              <MappingFragment StoreEntitySet="DeviceCatalog">
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PriceBand" ColumnName="PriceBand" />
+                <ScalarProperty Name="PriceUSD" ColumnName="PriceUSD" />
+                <ScalarProperty Name="DeviceCollection" ColumnName="DeviceCollection" />
+                <ScalarProperty Name="FormFactor" ColumnName="FormFactor" />
+                <ScalarProperty Name="DeviceCategory" ColumnName="DeviceCategory" />
+                <ScalarProperty Name="DeviceHeadlineShort" ColumnName="DeviceHeadlineShort" />
+                <ScalarProperty Name="DeviceHeadlineLong" ColumnName="DeviceHeadlineLong" />
+                <ScalarProperty Name="DeviceDescription" ColumnName="DeviceDescription" />
+                <ScalarProperty Name="GenericDescriptor" ColumnName="GenericDescriptor" />
+                <ScalarProperty Name="DeviceNarrative" ColumnName="DeviceNarrative" />
+                <ScalarProperty Name="Feature1Title" ColumnName="Feature1Title" />
+                <ScalarProperty Name="Feature1" ColumnName="Feature1" />
+                <ScalarProperty Name="Feature2Title" ColumnName="Feature2Title" />
+                <ScalarProperty Name="Feature2" ColumnName="Feature2" />
+                <ScalarProperty Name="Feature3Title" ColumnName="Feature3Title" />
+                <ScalarProperty Name="Feature3" ColumnName="Feature3" />
+                <ScalarProperty Name="Feature4Title" ColumnName="Feature4Title" />
+                <ScalarProperty Name="Feature4" ColumnName="Feature4" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
